@@ -1,0 +1,12 @@
+FROM ruby:3.3.0-bookworm
+
+WORKDIR /usr/src/app
+
+COPY Gemfile Gemfile.lock /usr/src/app/
+
+ENV BUNDLE_PATH /gems
+
+RUN bundle install --jobs 3
+
+COPY . /usr/src/app/
+
