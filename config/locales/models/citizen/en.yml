@@ -1,0 +1,13 @@
+en:
+  activerecord:
+    models:
+      citizen: 'Citizen'
+    attributres:
+      citizen:
+        fullname: 'Full Name'
+        cpf: 'CPF'
+        cns: 'CNS'
+        email: 'Email'
+        date_of_birth: 'Date of Birth'
+        phone: 'Phone Number'
+        status: 'Status'
