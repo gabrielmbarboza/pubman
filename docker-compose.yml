@@ -6,12 +6,12 @@ services:
     restart: always
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
-    environment:
+    env_file:
       - .env/database
     networks:
       - my_network
     ports:
-      - "5432:5432"
+      - 5432:5432
 
   pubman:
     container_name: pubman
