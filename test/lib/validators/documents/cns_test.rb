@@ -18,7 +18,7 @@ class CnsTest < ActiveSupport::TestCase
   end
 
   test "the CNS must be valid starting with the digit 9" do
-    assert ::Validators::Documents::Cns.valid?('962 5319 0200 0008')
+    assert ::Validators::Documents::Cns.valid?('916 9480 2118 0000')
   end
 
   test "should not be valid, the CNS length is greater than 15" do
