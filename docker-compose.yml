@@ -13,6 +13,17 @@ services:
     ports:
       - 5432:5432
 
+  elasticsearch:
+    image: elasticsearch:8.11.2
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    networks:
+      - my_network
+
   pubman:
     container_name: pubman
     build:
@@ -35,6 +46,7 @@ services:
       - my_network
     depends_on:
       - db
+      - elasticsearch
 
 volumes:
   gem_cache:

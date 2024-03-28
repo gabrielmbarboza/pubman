@@ -32,5 +32,7 @@ module App
 
     # Set default locale to something other than :en
     I18n.default_locale = :"pt-BR"
+
+    config.active_storage.variant_processor = :vips
   end
 end

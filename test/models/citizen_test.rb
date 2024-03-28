@@ -1,6 +1,22 @@
 require "test_helper"
 
 class CitizenTest < ActiveSupport::TestCase
+  def setup
+    Searchkick.enable_callbacks
+  end
+
+  def teardown
+    Searchkick.disable_callbacks
+  end
+
+  def test_search
+    citizen = citizens(:valid_citizen)
+    citizen.save!
+
+    Citizen.search_index.refresh
+    assert_equal ["Citizen Valid"], Citizen.search("citizen valid").map(&:full_name)
+  end
+
   test "should create a valid citizen " do
     citizen = citizens(:valid_citizen)
 
