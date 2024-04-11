@@ -50,6 +50,14 @@ gem 'searchkick', '~> 5.3', '>= 5.3.1'
 # Ruby integrations for Elasticsearch (client, API, etc.)
 gem 'elasticsearch', '~> 8.11', '>= 8.11.2'
 
+#The official library for communicating with the Twilio REST API, building TwiML, and generating Twilio JWT Capability Tokens
+gem 'twilio-ruby', '~> 6.12', '>= 6.12.1'
+
+# Agnostic pagination in plain ruby. It does it all. Better.
+gem 'pagy', '~> 7.0', '>= 7.0.11'
+
+gem 'requestjs-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
@@ -64,6 +72,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+  gem 'faker', '~> 3.3', '>= 3.3.1'
 end
 
 group :test do
@@ -71,3 +82,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "view_component", "~> 3.11"
