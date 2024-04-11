@@ -1,24 +1,102 @@
-# README
+# 🍻 Pubman (Public Management)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Table of Contents
 
-Things you may want to cover:
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Usage](#usage)
+- [Testing](#testing)
 
-* Ruby version
+## About <a name = "about"></a>
 
-* System dependencies
+The aim of this project is to showcase my skills in developing Rails applications. It's a simple CRUD application but withv some relevant features 🤓
 
-* Configuration
+## Getting Started <a name = "getting_started"></a>
 
-* Database creation
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-* Database initialization
+### Prerequisites
 
-* How to run the test suite
+What things you need to run the project.
 
-* Services (job queues, cache servers, search engines, etc.)
+- Docker
+- docker-compose
 
-* Deployment instructions
+The technologies involved in this project.
 
-* ...
+- Docker (26.0.0)
+- docker-compose (2.26.1)
+- Postgres (16.X)
+- Elasticsearch (8.11.2)
+- Twilio (for sending sms messages)
+- Ruby (3.3.0)
+- Rails (7.1.3)
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running.
+
+Clone this repository
+```bash
+$ git clone git@github.com:gabrielmbarboza/pubman.git
+```
+
+Copy or create new files from files with the `.sample` extension and then replace the environment variables in **.env** directory.
+
+```bash
+$ cp app.sample app
+
+$ cp database.sample database
+
+$ cp twilio.sample twilio
+```
+
+Create and migrate the database.
+
+```docker
+$ docker compose run --rm pubman bin/rails db:create
+
+$ docker compose run --rm pubman bin/rails db:migrate
+```
+
+or use only the task `db:setup`.
+
+```
+$ docker compose run --rm pubman bin/rails db:setup
+```
+
+Use the `pubman:dev` task to populate the development database with valid citiens.
+```docker
+$ docker compose run --rm pubman bin/rails pubman:dev
+```
+
+End with an example of getting some data out of the system or using it for a little demo.
+
+## Usage <a name = "usage"></a>
+
+Using Docker and docker-compose, just run the following command.
+
+```docker
+$ docker compose up
+```
+
+and access the following url in your broswer.
+
+```
+http://0.0.0.0:3000
+```
+
+## Testing <a name = "testing"></a>
+
+Use the following command to run all the tests.
+
+```docker
+$ docker compose run --rm pubman bin/rails test ./test
+```
+
+## Todo <a name = "todo"></a>
+
+- [ ] Create the integration, helpers and system tests.
+- [ ] Add drag and drop events to the show, create and edit window.
+- [ ] Fix the city selectbox in the edit window.
+
