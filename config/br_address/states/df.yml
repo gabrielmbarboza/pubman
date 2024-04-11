@@ -1,0 +1,9 @@
+---
+
+state:
+  code: DF
+  name: Distrito Federal
+  region: Centro-Oeste
+  capital: Brasília
+  cities:
+    - Brasília
