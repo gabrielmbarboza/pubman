@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "modal" do %>
+  <%= tag.div data: { controller: "turbo-modal",
+                      turbo_modal_target: "modal",
+                      action: "turbo:submit-end->turbo-modal#submitEnd",
+                      class: "clazz"} do %>
+    <div class="modal-title">
+      <strong><%= @title %></strong>
+      <%= button_tag "X", data: { action: "turbo-modal#hideModal" }, type: "button", class: "modal-bt-close" %>
+    </div>
+    <%= content %>
+
+  <% end %>
+<% end %>
