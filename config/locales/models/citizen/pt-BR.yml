@@ -9,13 +9,28 @@ pt-BR:
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
     models:
       citizen: 'Munícipe'
+      address: 'Endereço'
     attributes:
       citizen:
         full_name: 'Nome Completo'
         cpf: 'CPF'
         cns: 'CNS'
         email: 'Email'
-        date_of_birth: 'Data de Nascimento'
+        date_of_birth: 'Data Nascimento'
         phone: 'Telefone'
         status: 'Status'
-  
+        photo: 'Foto'
+      address:
+        zip_code: 'Cep'
+        street: 'Logradouro'
+        address_number: 'Número'
+        complement: 'Complemento'
+        neighborhood: 'Bairro'
+        city: 'Cidade'
+        state: 'Estado'
+        ibge_code: 'Código IBGE'
+    enums:
+      citizen:
+        statuses:
+          enabled: 'Habilitado'
+          disabled: 'Desabilitado'
