@@ -222,3 +222,8 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: pm
+
+  notification:
+    citizen:
+      created: "Você acaba de realizar seu cadastrado conosco! Seja muito bem-vindo."
+      updated: "Você acaba de realizar uma atualização em seu cadastrado!"
