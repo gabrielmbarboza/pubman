@@ -1,0 +1,29 @@
+<table>
+      <thead>
+        <tr>
+          <th></th>
+           <th>NOME</th>
+           <th>CPF</th>
+           <th>CNS</th>
+           <th>EMAIL</th>
+           <th>DATA NASCIMENTO</th>
+           <th>TELEFONE</th>
+           <th colspan="1">SITUAÇ&Atilde;O</th>
+           <th></th>
+        </tr>
+      </thead>
+      <tbody id="citizen-list">
+        <% citizens.each do |citizen| %>
+          <%= render citizen %>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <% if pagy.pages > 1 %>
+        <tr>
+          <td colspan="9">
+            <%== pagy_nav(pagy) %>
+          </td>
+        </tr>
+        <% end %>
+      </tfoot>
+    </table>

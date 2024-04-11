@@ -1,0 +1,39 @@
+<tr id="ctz-<%= citizen.id %>">
+  <td>
+  <% if citizen.photo.attached? %>
+    <%= image_tag citizen.photo.variant(:mini) %>
+  <% else %>
+    <div class="no-photo"><%= "\u{1F464}" %></div>
+  <% end %>
+  </td>
+  <td>
+    <strong>
+    <%= link_to citizen.full_name, citizen, data: { turbo_frame: 'modal' } %></strong>
+  </td>
+  <td>
+    <%= citizen.cpf %>
+  </td>
+  <td>
+    <%= citizen.cns %>
+  </td>
+  <td>
+    <%= citizen.email %>
+  </td>
+  <td>
+    <%= date_format(citizen.date_of_birth) %>
+  </td>
+  <td>
+    <%= citizen.phone %>
+  </td>
+  <td>
+    <% if citizen.enabled? %>
+    <%= "\u{1F7E2}" %>
+    <% else %>
+    <%= "\u{1F534}" %>
+    <% end %>
+    <%= enum_i18n(Citizen, :status, citizen.status) %>
+  </td>
+  <td>
+    <%= link_to "Editar", edit_citizen_path(citizen), data: { turbo_frame: 'modal' } %>
+  </td>
+</tr>

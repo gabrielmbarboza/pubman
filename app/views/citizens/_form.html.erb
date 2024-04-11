@@ -1,0 +1,91 @@
+<div class="modal-content">
+<%= form_with(model: citizen) do |form| %>
+  <% if citizen.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(citizen.errors.count, "error") %> prohibited this citizen from being saved:</h2>
+
+      <ul>
+        <% citizen.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="modal-section">Dados Pessoais</div>
+  <div class="form-row">
+    <%= form.label :full_name do %><span>Nome</span>
+      <%= form.text_field :full_name, class: 'input-xlarge' %>
+    <% end %>
+    <%= form.label :email do %><span>Email</span>
+      <%= form.text_field :email, class: 'input-large' %>
+    <% end %>
+  </div>
+
+  <div class="form-row">
+    <%= form.label :cpf do %><span>CPF</span>
+      <%= form.text_field :cpf, class: 'input-medium', placeholder: '999.999.999-99' %>
+    <% end %>
+    <%= form.label :cns do %><span>CNS</span>
+      <%= form.text_field :cns, class: 'input-medium', placeholder: '999 9999 9999 9999' %>
+    <% end %>
+    <%= form.label :date_of_birth do %><span>Data Nascimento</span>
+      <%= form.date_field :date_of_birth, class: 'input-medium' %>
+    <% end %>
+  </div>
+  <div class="form-row">
+    <%= form.label :phone do %><span>Telefone</span>
+      <%= form.text_field :phone, class: 'input-medium', placeholder: '+99 (99) 99999-9999' %>
+    <% end %>
+    <%= form.label :status do %><span>Situa&ccedil;&atilde;o</span>
+      <%= form.select :status, enum_options_for_select(Citizen, :status) %>
+    <% end %>
+    <%= form.label :photo do %><span>Foto</span>
+      <%= form.file_field :photo %>
+    <% end %>
+  </div>
+  <div class="modal-section">Endere&ccedil;o</div>
+  <%= form.fields_for :address do |address_form| %>
+    <div class="form-row">
+      <%= address_form.label :street do %><span>Logradouro</span>
+        <%= address_form.text_field :street, class: 'input-xlarge' %>
+      <% end %>
+      <%= address_form.label :address_number do %><span>N°</span>
+        <%= address_form.text_field :address_number, class: 'input-small' %>
+      <% end %>
+      <%= address_form.label :neighborhood do %><span>Bairro</span>
+        <%= address_form.text_field :neighborhood, class: 'input-medium' %>
+      <% end %>
+    </div>
+    <div
+      data-controller="select"
+      data-select-url-value="<%= addresses_cities_path %>"
+      data-select-param-value="state"
+      class="form-row">
+      <%= address_form.label :state do %><span>UF</span>
+        <%= address_form.select :state, ::BrAddress::State.all.invert, { prompt: 'Selecione um estado'} , data: { class: 'input-small',
+                                                                                                                  action: "change->select#change",
+                                                                                                                  select_target: "state"  }  %>
+      <% end %>
+      <%= address_form.label :city do %><span>Cidade</span>
+        <%= address_form.select :city, [], {}, data: { id: nil, class: 'input-large', select_target: "select" } %>
+      <% end %>
+      <%= address_form.label :zip_code do %><span>Cep</span>
+        <%= address_form.text_field :zip_code, class: 'input-zipcode', placeholder: '99999-999'  %>
+      <% end %>
+    </div>
+    <div class="form-row">
+      <%= address_form.label :complement do %><span>Complemento</span>
+        <%= address_form.text_field :complement, class: 'input-xlarge' %>
+      <% end %>
+      <%= address_form.label :ibge_code do %><span>C&oacute;digo IBGE</span>
+        <%= address_form.text_field :ibge_code, class: 'input-large' %>
+      <% end %>
+    </div>
+  <% end %>
+  <br />
+  <div class="form-button-actions">
+    <%= button_tag "Cancelar", data: { action: "turbo-modal#hideModal" }, type: "button", class: "form-bt-cancel" %>
+    <%= form.submit "Salvar", class: "form-bt-save" %>
+  </div>
+<% end %>
+</div>

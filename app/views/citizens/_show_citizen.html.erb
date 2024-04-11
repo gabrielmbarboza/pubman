@@ -1,0 +1,39 @@
+<div class="show-citizen">
+  <div>
+    <% if citizen.photo.attached? %>
+      <%= image_tag citizen.photo.variant(:profile) %>
+    <% else %>
+      <div class="no-photo"><%= "\u{1F464}" %></div>
+    <% end %>
+  </div>
+  <div>
+    <p>
+      <strong>Nome:</strong> <%= citizen.full_name %>
+    </p>
+    <p>
+      <strong>CPF:</strong> <%= citizen.cpf %>
+    </p>
+    <p>
+      <strong>CNS:</strong> <%= citizen.cns %>
+    </p>
+    <p>
+      <strong>Email:</strong> <%= citizen.email %>
+    </p>
+    <p>
+      <strong>Data Nascimento:</strong> <%= date_format(citizen.date_of_birth) %>
+    </p>
+    <p>
+      <strong>Telefone:</strong> <%= citizen.phone %>
+    </p>
+    <p>
+      <strong>Situa&ccedil;&atilde;o:</strong> <%= enum_i18n(Citizen, :status, citizen.status) %>
+    </p>
+    <p>
+      <strong>Endere&ccedil;o:</strong> <%= citizen.address.to_s %>
+    </p>
+
+    <p>
+      <%= link_to "Editar", edit_citizen_path(citizen), data: { turbo_frame: 'modal' } %>
+    </p>
+  </div>
+</div>
