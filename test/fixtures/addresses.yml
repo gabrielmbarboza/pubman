@@ -1,0 +1,12 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid_address:
+  zip_code: "29050-780"
+  street: "Rua Coronel Schwab Filho"
+  address_number: "13"
+  complement: "Quadra 2"
+  neighborhood: "Bento Ferreira"
+  city: "Vitória"
+  state: "ES"
+  ibge_code: "3205309"
+  citizen: valid_citizen
