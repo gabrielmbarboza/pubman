@@ -9,7 +9,7 @@
 
 ## About <a name = "about"></a>
 
-The aim of this project is to showcase my skills in developing Rails applications. It's a simple CRUD application but withv some relevant features 🤓
+The aim of this project is to showcase my skills in developing Rails applications. It's a simple CRUD application but with some relevant features 🤓
 
 ## Getting Started <a name = "getting_started"></a>
 
@@ -38,36 +38,43 @@ A step by step series of examples that tell you how to get a development env run
 
 Clone this repository
 ```bash
-$ git clone git@github.com:gabrielmbarboza/pubman.git
+git clone git@github.com:gabrielmbarboza/pubman.git
 ```
 
 Copy or create new files from files with the `.sample` extension and then replace the environment variables in **.env** directory.
 
 ```bash
-$ cp app.sample app
+cp app.sample app
+```
 
-$ cp database.sample database
+```bash
+cp database.sample database
+```
 
-$ cp twilio.sample twilio
+```bash
+cp twilio.sample twilio
 ```
 
 Create and migrate the database.
 
 ```docker
-$ docker compose run --rm pubman bin/rails db:create
+docker compose run --rm pubman bin/rails db:create
+```
 
-$ docker compose run --rm pubman bin/rails db:migrate
+```docker
+docker compose run --rm pubman bin/rails db:migrate
 ```
 
 or use only the task `db:setup`.
 
-```
-$ docker compose run --rm pubman bin/rails db:setup
+```docker
+docker compose run --rm pubman bin/rails db:setup
 ```
 
 Use the `pubman:dev` task to populate the development database with valid citiens.
+
 ```docker
-$ docker compose run --rm pubman bin/rails pubman:dev
+docker compose run --rm pubman bin/rails pubman:dev
 ```
 
 End with an example of getting some data out of the system or using it for a little demo.
@@ -77,7 +84,7 @@ End with an example of getting some data out of the system or using it for a lit
 Using Docker and docker-compose, just run the following command.
 
 ```docker
-$ docker compose up
+docker compose up
 ```
 
 and access the following url in your broswer.
